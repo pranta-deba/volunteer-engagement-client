@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='relative'>
       <Navbar />
-      <main className='min-h-[calc(100vh-435.6px)]'>
+      <main className='min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[90%] mx-auto'>
         <Outlet />
       </main>
       {/* <Footer /> */}
