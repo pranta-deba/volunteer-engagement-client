@@ -5,9 +5,11 @@ import { MdAddChart, MdLightMode, MdManageAccounts, MdManageHistory, MdOutlineLi
 import { GoGitPullRequest } from "react-icons/go";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import useAllProvider from '../hooks/useAllProvider';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
-    const { themeController, setThemeController } = useAllProvider();
+    const { user, themeController, setThemeController, logOut } = useAllProvider();
     const [nav, setNav] = useState(false);
     const handleNav = () => {
         setNav(!nav);
@@ -47,21 +49,20 @@ const Navbar = () => {
                         <NavLink className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
                     </li>
                 ))}
-                <li><NavLink to={'/sign_in'} className="btn relative px-4 py-3 font-medium text-black transition duration-300 bg-green-400 rounded-md hover:bg-green-500 ease">
+                {!user && <li><NavLink to={'/sign_in'} className="btn relative px-4 py-3 font-medium text-black transition duration-300 bg-green-400 rounded-md hover:bg-green-500 ease">
                     <span className="absolute bottom-0 left-0 h-full ">
                         <svg viewBox="0 0 487 487" className="w-auto h-full opacity-100 object-stretch" xmlns="http://www.w3.org/2000/svg"><path d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z" fill="#FFF" fillRule="nonzero" fillOpacity=".1"></path></svg>
                     </span>
                     <span className="absolute top-0 right-0 w-12 h-full">
                         <svg viewBox="0 0 487 487" className="object-cover w-full h-full" xmlns="http://www.w3.org/2000/svg"><path d="M487 486.7c-66.1-3.6-132.3-7.3-186.3-37s-95.9-85.3-126.2-137.2c-30.4-51.8-49.3-99.9-76.5-151.4C70.9 109.6 35.6 54.8.3 0H487v486.7z" fill="#FFF" fillRule="nonzero" fillOpacity=".1"></path></svg>
                     </span>
-                    <span className="relative">Sign In</span></NavLink></li>
-                <li> </li>
+                    <span className="relative">Sign In</span></NavLink></li>}
             </ul>
-            <div className='flex items-center gap-2'>
+            {user && <div className='flex items-center gap-2 ms-2'>
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-16 rounded-full border-2 border-[#00df9a]">
-                            <img alt="" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img alt="" src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}/>
                         </div>
                     </div>
                     <ul id='dropdown-content' tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -75,13 +76,13 @@ const Navbar = () => {
 
                         <div onClick={handleThemeChanged} className='flex items-center gap-1 px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black focus:bg-[#00df9a]'>{themeController === "dark" ? <MdOutlineLightMode /> : <MdLightMode />}{themeController === 'dark' ? "Light Mode" : "Dark Mode"}</div>
 
-                        <li><NavLink to={'/55'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><RiLogoutBoxLine />Logout</NavLink></li>
+                        <li onClick={logOut}><Link className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><RiLogoutBoxLine />Logout</Link></li>
                     </ul>
                 </div>
                 <div onClick={handleNav} className='block md:hidden'>
                     {nav ? <AiOutlineClose size={35} className='text-[#00df9a]' /> : <AiOutlineMenu size={35} className='text-[#00df9a]' />}
                 </div>
-            </div>
+            </div>}
 
             <ul
                 className={`flex flex-col gap-6 capitalize font-semibold px-3  
@@ -104,6 +105,7 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
+            <Tooltip id="my-tooltip" />
         </div>
     );
 };

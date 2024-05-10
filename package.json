@@ -13,11 +13,16 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "firebase": "^10.11.1",
     "framer-motion": "^11.1.9",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^5.2.0",
+    "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.23.0",
+    "react-tooltip": "^5.26.4",
     "swiper": "^11.1.1"
   },
   "devDependencies": {

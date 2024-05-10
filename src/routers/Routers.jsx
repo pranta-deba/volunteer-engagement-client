@@ -3,12 +3,13 @@ import App from "../App";
 import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: "hi",
+        errorElement: <ErrorPage/>,
         children: [
             {
                 path: "/",
