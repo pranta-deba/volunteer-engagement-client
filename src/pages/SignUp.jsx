@@ -2,19 +2,19 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import useAllProvider from "../hooks/useAllProvider";
-import {  RotatingLines } from 'react-loader-spinner'
+import { RotatingLines } from 'react-loader-spinner'
 
 const SignUp = () => {
     const [passToggle, setPassToggle] = useState(false);
     const [passToggle2, setPassToggle2] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
     const [passErr, setPassErr] = useState(false);
-    const { emailPasswordRegister, updateUser } = useAllProvider();
+    const { emailPasswordRegister, updateUser, updateTrigger, setUpdateTrigger, googleSignIn } = useAllProvider();
     const [signUpLoader, setSignUpLoader] = useState(false);
     const navigate = useNavigate();
     const from = '/'
 
-    const handleLogin = async e => {
+    const handleSignUp = async e => {
         setSignUpLoader(true)
         e.preventDefault();
         if (emailErr ||
@@ -60,7 +60,10 @@ const SignUp = () => {
         try {
             const { user: registerUser } = await emailPasswordRegister(userData.email, userData.password);
             if (registerUser) {
-                updateUser(userData.name, userData.photoURL);
+                updateUser(userData.name, userData.photoURL)
+                    .then(() => {
+                        setUpdateTrigger(!updateTrigger);
+                    })
                 setSignUpLoader(false)
                 e.target.reset();
                 toast.success("Create Successfully.", {
@@ -76,6 +79,42 @@ const SignUp = () => {
                 });
                 navigate(from);
             }
+        } catch (error) {
+            toast.error(error.message.split('/')[1].split(')')[0], {
+                style: {
+                    border: '1px solid red',
+                    padding: '10px',
+                    color: 'red',
+                },
+                iconTheme: {
+                    primary: 'red',
+                    secondary: '#FFFAEE',
+                },
+            });
+            setSignUpLoader(false)
+        }
+    }
+
+    const handleGoogleLogin = async() => {
+        setSignUpLoader(true);
+        try {
+            const { user:googleUser } = await googleSignIn();
+            if (googleUser) {
+                setSignUpLoader(false);
+                toast.success("Authentication Successfully.", {
+                    style: {
+                        border: '1px solid #00df9a',
+                        padding: '10px',
+                        color: '#00df9a',
+                    },
+                    iconTheme: {
+                        primary: '#00df9a',
+                        secondary: 'white',
+                    },
+                });
+                navigate(from);
+            }
+
         } catch (error) {
             toast.error(error.message.split('/')[1].split(')')[0], {
                 style: {
@@ -111,7 +150,7 @@ const SignUp = () => {
                         <Link to={'/sign_in'} className="focus:underline hover:underline text-[#00df9a] font-bold"> Sign In here</Link>
                     </p>
                     <div className="my-6 space-y-4">
-                        <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600">
+                        <button onClick={handleGoogleLogin} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-violet-600">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
                                 <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
                             </svg>
@@ -123,7 +162,7 @@ const SignUp = () => {
                         <p className="px-3 text-[#00df9a] dark:text-gray-600">OR</p>
                         <hr className="w-full dark:text-gray-600" />
                     </div>
-                    <form onSubmit={handleLogin} className="space-y-8">
+                    <form onSubmit={handleSignUp} className="space-y-8">
                         <div className="space-y-4 grid grid-cols-2 gap-2 items-center justify-center">
                             <div className="space-y-2 md:col-span-2">
                                 <label htmlFor="email" className="text-sm">Name </label>

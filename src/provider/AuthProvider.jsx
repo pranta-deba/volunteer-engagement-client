@@ -32,31 +32,25 @@ const AuthProvider = ({ children }) => {
     const logOut = () => {
         signOut(auth);
     }
-    const emailPasswordSignIn = (email,password) => {
+    const emailPasswordSignIn = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
     const googleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(() => {
-                setUpdateTrigger(!updateTrigger)
-            })
+        return signInWithPopup(auth, googleProvider);
     }
 
 
-
-
-
-    console.log(user);
+    // console.log(user);
 
     return <AuthContext.Provider value={{
-        themeController,
-        setThemeController,
         user,
         emailPasswordRegister,
         googleSignIn,
         updateUser,
         emailPasswordSignIn,
-        logOut
+        logOut,
+        themeController,
+        setThemeController,updateTrigger, setUpdateTrigger
     }}>
         {children}
     </AuthContext.Provider>

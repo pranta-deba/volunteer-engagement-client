@@ -6,9 +6,9 @@ import Navbar from './components/Navbar'
 function App() {
 
   return (
-    <div className='relative'>
+    <div>
       <Navbar />
-      <main className='min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[90%] mx-auto'>
+      <main className=''>
         <Outlet />
       </main>
       {/* <Footer /> */}

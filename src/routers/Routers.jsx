@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import ErrorPage from "../pages/ErrorPage";
+import AddVolunteer from "../pages/AddVolunteer";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
+            },
+            {
+                path: "/add_volunteer",
+                element: <AddVolunteer/>
             },
             {
                 path: "/profile",

@@ -8,3 +8,5 @@
 - [](https://www.npmjs.com/package/react-tooltip)
 - [](https://www.npmjs.com/package/react-loader-spinner)
 - [](https://www.npmjs.com/package/lottie-react)
+- [](https://swiperjs.com/get-started)
+- [](https://reactdatepicker.com/)

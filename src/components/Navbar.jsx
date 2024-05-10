@@ -65,12 +65,12 @@ const Navbar = () => {
                             <img alt="" src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}/>
                         </div>
                     </div>
-                    <ul id='dropdown-content' tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <ul id='dropdown-content' tabIndex={0} className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                         <li>
 
                             <NavLink to={'/profile'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdManageAccounts />Profile</NavLink>
                         </li>
-                        <li><NavLink to={'/dd'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdAddChart />Add Volunteer Post</NavLink></li>
+                        <li><NavLink to={'/add_volunteer'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdAddChart />Add Volunteer Post</NavLink></li>
                         <li><NavLink to={'/ff'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdManageHistory />Manage My Post</NavLink></li>
                         <li><NavLink to={'/gr'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><GoGitPullRequest />Volunteer Requested</NavLink></li>
 
@@ -85,7 +85,7 @@ const Navbar = () => {
             </div>}
 
             <ul
-                className={`flex flex-col gap-6 capitalize font-semibold px-3  
+                className={`flex flex-col gap-6 capitalize font-semibold px-3 z-30  
                     ${nav
                         ? 'fixed md:hidden left-0 top-0 w-[60%] h-full bg-white dark:bg-black ease-in-out duration-500'
                         : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'}

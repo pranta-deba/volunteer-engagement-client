@@ -1,8 +1,11 @@
+import Banner from "../components/Banner";
+import VolunteerNeedsSection from "../components/VolunteerNeedsSection";
 
 const Home = () => {
     return (
         <div>
-            home
+            <Banner />
+            <VolunteerNeedsSection/>
         </div>
     );
 };
