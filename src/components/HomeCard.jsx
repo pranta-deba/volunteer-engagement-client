@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const HomeCard = ({ item }) => {
-    const { thumbnail, postTitle, category, deadline, volunteersNeeded } = item || {};
+    const {_id, thumbnail, postTitle, category, deadline, volunteersNeeded } = item || {};
     return (
-        <div className="flex max-w-md overflow-hidden group hover:bg-[#00df9a] rounded-lg shadow-lg  dark:bg-gray-800">
+        <div className="flex max-w-md overflow-hidden group transition-all hover:bg-[#00df9a] rounded-lg shadow-lg  dark:bg-gray-800">
             <div className="w-1/2 bg-cover" style={{
                 backgroundImage: `url('${thumbnail}')`
             }}></div>
@@ -17,7 +19,7 @@ const HomeCard = ({ item }) => {
 
                 <div className="md:flex justify-between mt-3 item-center">
                     <h1 className="text-lg font-semibold  dark:text-gray-200 md:text-md group-hover:text-black">Need : {volunteersNeeded}</h1>
-                    <button className="px-2 py-1 text-xs font-bold text-white uppercase transition-colors duration-300 transform bg-[#00df9a] rounded dark:bg-[#00df9a] hover:bg-[#00df9a] dark:hover:bg-[#00df9a] focus:outline-none focus:bg-[#00df9a] dark:focus:bg-[#00df9a] group-hover:bg-black">View Details</button>
+                    <Link to={`/details/${_id}`} className="px-2 py-2 text-xs font-bold text-white uppercase  duration-300 transform bg-[#00df9a] rounded dark:bg-[#00df9a] hover:bg-[#00df9a] dark:hover:bg-[#00df9a] focus:outline-none focus:bg-[#00df9a] dark:focus:bg-[#00df9a] group-hover:bg-black transition-all">View Details</Link>
                 </div>
             </div>
         </div>

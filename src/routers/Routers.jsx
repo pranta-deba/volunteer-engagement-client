@@ -5,12 +5,14 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import ErrorPage from "../pages/ErrorPage";
 import AddVolunteer from "../pages/AddVolunteer";
+import Volunteers from "../pages/Volunteers";
+import Details from "../pages/Details";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <ErrorPage/>,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
@@ -18,19 +20,24 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add_volunteer",
-                element: <AddVolunteer/>
+                element: <AddVolunteer />
             },
             {
-                path: "/profile",
-                element: "profile"
+                path: "/volunteers",
+                element: <Volunteers />
+            },
+            {
+                path: "/details/:id",
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/volunteers/${params.id}`),
+                element: <Details />
             },
             {
                 path: "/sign_in",
-                element: <SignIn/>
+                element: <SignIn />
             },
             {
                 path: "/sign_up",
-                element: <SignUp/>
+                element: <SignUp />
             },
         ]
     },
