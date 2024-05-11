@@ -7,13 +7,14 @@ const VolunteerNeedsSection = () => {
     const [volunteers, setVolunteers] = useState([]);
     useEffect(() => {
         getData()
-      }, [])
-    
-      const getData = async () => {
+    }, [])
+
+    const getData = async () => {
         const { data } = await axiosSecure(`/volunteers`)
-        setVolunteers(data)
-      }
-      
+        const sort = data.slice().sort((a, b) => new Date(new Date(b.deadline).toLocaleDateString()) - new Date(new Date(a.deadline).toLocaleDateString()));
+        setVolunteers(sort);
+    }
+
     return (
         <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
             <div className="flex flex-col justify-center items-center text-center gap-4">
@@ -21,9 +22,9 @@ const VolunteerNeedsSection = () => {
                 <p className="text-md"> Dive into immediate volunteer needs where your support can create an instant impact. <br /> Explore our urgent opportunities and join hands with careCrew today.</p>
             </div>
             <div className="flex justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center my-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
                     {
-                        volunteers.slice(0,6).map(item => <HomeCard key={item._id} item={item} />)
+                        volunteers.slice(0, 6).map(item => <HomeCard key={item._id} item={item} />)
                     }
                 </div>
             </div>

@@ -13,7 +13,10 @@ const Volunteers = () => {
     useEffect(() => {
         fetch('http://localhost:5000/volunteers')
             .then(response => response.json())
-            .then(data => setVolunteers(data))
+            .then(data => {
+                const sort = data.slice().sort((a, b) => new Date(new Date(b.deadline).toLocaleDateString()) - new Date(new Date(a.deadline).toLocaleDateString()));
+                setVolunteers(sort);
+            })
     }, [])
     const handleSearch = async (e) => {
         e.preventDefault();
@@ -41,7 +44,6 @@ const Volunteers = () => {
             const sort = volunteers.slice().sort((a, b) => new Date(new Date(a.deadline).toLocaleDateString()) - new Date(new Date(b.deadline).toLocaleDateString()));
             setVolunteers(sort);
         }
-        console.log(value);
     }
     return (
         <div className="my-8 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[90%] md:w-[100%] mx-auto">
@@ -49,8 +51,8 @@ const Volunteers = () => {
                 <div>
                     <select onChange={(e) => handleSort(e.target.value)} className="text-[#00df9a] font-bold bg-transparent">
                         <option value="" className="text-[#00df9a]">Sort By Date</option>
-                        <option value="newtToOld" className="text-black">Newest to Oldest</option>
                         <option value="oldToNew" className="text-black">Oldest to Newest</option>
+                        <option value="newtToOld" className="text-black">Newest to Oldest</option>
                     </select>
                 </div>
                 <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-3">

@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage";
 import AddVolunteer from "../pages/AddVolunteer";
 import Volunteers from "../pages/Volunteers";
 import Details from "../pages/Details";
+import ManageMyPost from "../pages/ManageMyPost";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
                 path: "/details/:id",
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/volunteers/${params.id}`),
                 element: <Details />
+            },
+            {
+                path: "/manage_post",
+                element: <ManageMyPost />
             },
             {
                 path: "/sign_in",

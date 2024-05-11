@@ -71,7 +71,7 @@ const Navbar = () => {
                             <NavLink to={'/profile'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdManageAccounts />Profile</NavLink>
                         </li>
                         <li><NavLink to={'/add_volunteer'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdAddChart />Add Volunteer Post</NavLink></li>
-                        <li><NavLink to={'/ff'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdManageHistory />Manage My Post</NavLink></li>
+                        <li><NavLink to={'/manage_post'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><MdManageHistory />Manage My Post</NavLink></li>
                         <li><NavLink to={'/gr'} className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><GoGitPullRequest />Volunteer Requested</NavLink></li>
 
                         <div onClick={handleThemeChanged} className='flex items-center gap-1 px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black focus:bg-[#00df9a]'>{themeController === "dark" ? <MdOutlineLightMode /> : <MdLightMode />}{themeController === 'dark' ? "Light Mode" : "Dark Mode"}</div>

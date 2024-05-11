@@ -10,3 +10,4 @@
 - [](https://www.npmjs.com/package/lottie-react)
 - [](https://swiperjs.com/get-started)
 - [](https://reactdatepicker.com/)
+- [](https://sweetalert2.github.io)

@@ -39,7 +39,7 @@ const AddVolunteer = () => {
         }
         const post = { thumbnail, postTitle, description, location, volunteersNeeded: parseInt(volunteersNeeded), deadline, category, organizer: { name: organizerName, email: organizerEmail, photo: user?.photoURL } };
         try {
-            const { data } = await axiosSecure.post('volunteers', post);
+            const { data } = await axiosSecure.post('/volunteers', post);
             if (data.insertedId) {
                 toast.success("Post Added Successfully.", {
                     style: {
@@ -57,7 +57,6 @@ const AddVolunteer = () => {
         } catch (error) {
             console.log(error.message);
         }
-        console.log(post);
     };
     return (
         <div className="px-9">
