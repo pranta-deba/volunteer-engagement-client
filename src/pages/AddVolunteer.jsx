@@ -3,11 +3,14 @@ import useAllProvider from "../hooks/useAllProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddVolunteer = () => {
     const { user } = useAllProvider();
     const [startDate, setStartDate] = useState(new Date());
-    const handleSubmit = (e) => {
+    const axiosSecure = useAxiosSecure();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
         const thumbnail = form.thumbnail.value.trim();
@@ -34,7 +37,26 @@ const AddVolunteer = () => {
             });
             return;
         }
-        const post = { thumbnail, postTitle, description, location, volunteersNeeded, deadline, category, organizer: { name:organizerName, email:organizerEmail, photo: user?.photoURL } };
+        const post = { thumbnail, postTitle, description, location, volunteersNeeded: parseInt(volunteersNeeded), deadline, category, organizer: { name: organizerName, email: organizerEmail, photo: user?.photoURL } };
+        try {
+            const { data } = await axiosSecure.post('volunteers', post);
+            if (data.insertedId) {
+                toast.success("Post Added Successfully.", {
+                    style: {
+                        border: '1px solid #00df9a',
+                        padding: '10px',
+                        color: '#00df9a',
+                    },
+                    iconTheme: {
+                        primary: '#00df9a',
+                        secondary: 'white',
+                    },
+                });
+                e.target.reset();
+            }
+        } catch (error) {
+            console.log(error.message);
+        }
         console.log(post);
     };
     return (
@@ -61,10 +83,10 @@ const AddVolunteer = () => {
                         <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
                         <select id="category" name="category" required className="mt-1 p-2 w-full border border-gray-300 rounded-md">
                             <option value="">Select Category</option>
-                            <option value="healthcare">Healthcare</option>
-                            <option value="education">Education</option>
-                            <option value="social service">Social Service</option>
-                            <option value="animal welfare">Animal Welfare</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Education">Education</option>
+                            <option value="Social Service">Social Service</option>
+                            <option value="Animal Welfare">Animal Welfare</option>
                         </select>
                     </div>
                     <div className="md:col-span-1">

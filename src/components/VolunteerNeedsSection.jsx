@@ -23,12 +23,12 @@ const VolunteerNeedsSection = () => {
             <div className="flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center my-8">
                     {
-                        volunteers.map(item => <HomeCard key={item._id} item={item} />)
+                        volunteers.slice(0,6).map(item => <HomeCard key={item._id} item={item} />)
                     }
                 </div>
             </div>
             <div className="flex justify-center items-center">
-                <Link to={"/volunteers"} className="btn bg-[#00df9a] hover:bg-[#00df9a] text-md font-medium">See All</Link>
+                <Link to={"/volunteers"} className="btn bg-[#00df9a] hover:bg-[#00df9aA6] text-md font-medium px-12">See All</Link>
             </div>
         </div>
     );

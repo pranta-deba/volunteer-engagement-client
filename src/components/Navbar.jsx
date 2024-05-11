@@ -46,7 +46,7 @@ const Navbar = () => {
                         key={item.id + 1}
 
                     >
-                        <NavLink className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
+                        <NavLink className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
                     </li>
                 ))}
                 {!user && <li><NavLink to={'/sign_in'} className="btn relative px-4 py-3 font-medium text-black transition duration-300 bg-green-400 rounded-md hover:bg-green-500 ease">
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-16 rounded-full border-2 border-[#00df9a]">
-                            <img alt="" src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName}/>
+                            <img alt="" src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} />
                         </div>
                     </div>
                     <ul id='dropdown-content' tabIndex={0} className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
