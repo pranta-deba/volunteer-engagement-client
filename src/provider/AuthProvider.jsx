@@ -9,11 +9,13 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const googleProvider = new GoogleAuthProvider();
     const [updateTrigger, setUpdateTrigger] = useState(false);
+    const [userLoader, setUserLoader] = useState(true);
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
+                setUserLoader(false);
                 const tokenAccess = async () => {
                     await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, {
                         email: currentUser?.email
@@ -23,6 +25,7 @@ const AuthProvider = ({ children }) => {
                 tokenAccess();
             } else {
                 setUser(null);
+                setUserLoader(false);
                 const removeToken = async () => {
                     await axios(`${import.meta.env.VITE_API_URL}/logOut`, { withCredentials: true });
                 }
@@ -56,6 +59,7 @@ const AuthProvider = ({ children }) => {
 
     return <AuthContext.Provider value={{
         user,
+        userLoader,
         emailPasswordRegister,
         googleSignIn,
         updateUser,

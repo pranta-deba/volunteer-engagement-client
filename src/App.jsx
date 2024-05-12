@@ -5,8 +5,8 @@ import { RotatingLines } from 'react-loader-spinner';
 import useAllProvider from './hooks/useAllProvider';
 // import Footer from './components/Footer'
 function App() {
-  const { user } = useAllProvider();
-  if (!user) {
+  const { userLoader } = useAllProvider();
+  if (userLoader) {
     return (
       <div className="h-screen flex justify-center items-center my-12">
         <RotatingLines

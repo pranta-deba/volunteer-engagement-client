@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAllProvider from "../hooks/useAllProvider";
 import { RotatingLines } from 'react-loader-spinner'
 
@@ -12,7 +12,8 @@ const SignUp = () => {
     const { emailPasswordRegister, updateUser, updateTrigger, setUpdateTrigger, googleSignIn } = useAllProvider();
     const [signUpLoader, setSignUpLoader] = useState(false);
     const navigate = useNavigate();
-    const from = '/'
+    const location = useLocation();
+    const from = location.state || '/';
 
     const handleSignUp = async e => {
         setSignUpLoader(true)
@@ -66,7 +67,7 @@ const SignUp = () => {
                     })
                 setSignUpLoader(false)
                 e.target.reset();
-                toast.success("Create Successfully.", {
+                toast.success("Account Create Successfully.", {
                     style: {
                         border: '1px solid #00df9a',
                         padding: '10px',
@@ -95,10 +96,10 @@ const SignUp = () => {
         }
     }
 
-    const handleGoogleLogin = async() => {
+    const handleGoogleLogin = async () => {
         setSignUpLoader(true);
         try {
-            const { user:googleUser } = await googleSignIn();
+            const { user: googleUser } = await googleSignIn();
             if (googleUser) {
                 setSignUpLoader(false);
                 toast.success("Authentication Successfully.", {

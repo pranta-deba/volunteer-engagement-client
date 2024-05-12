@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAllProvider from "../hooks/useAllProvider";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -11,7 +11,8 @@ const SignIn = () => {
     const { emailPasswordSignIn } = useAllProvider();
     const [signUpLoader, setSignUpLoader] = useState(false);
     const navigate = useNavigate();
-    const from = '/'
+    const location = useLocation();
+    const from = location.state||'/';
 
     const handleLogin = async e => {
         setSignUpLoader(true);

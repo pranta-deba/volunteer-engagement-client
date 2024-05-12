@@ -9,6 +9,7 @@ import Volunteers from "../pages/Volunteers";
 import Details from "../pages/Details";
 import ManageMyPost from "../pages/ManageMyPost";
 import VolunteerRequest from "../pages/VolunteerRequest";
+import Private from "./Private";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add_volunteer",
-                element: <AddVolunteer />
+                element: <Private><AddVolunteer /></Private>
             },
             {
                 path: "/volunteers",
