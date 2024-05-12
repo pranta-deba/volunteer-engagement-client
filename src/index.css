@@ -8,14 +8,12 @@
     background-color: white !important;
     color: black !important;
     padding: 0.75rem 1rem !important;
-    border-radius: 0.375rem !important;
 }
 
 .hide-scroll::-webkit-scrollbar {
     display: none;
 }
 .active {
-    border-bottom: 2px solid #00df9a;
+    border-bottom: 2px solid #00df9a !important;
     padding: 0.75rem 1rem !important;
-    border-radius: 0.375rem !important;
 }

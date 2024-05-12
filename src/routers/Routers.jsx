@@ -26,6 +26,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/volunteers",
+                loader: ()=> fetch('http://localhost:5000/volunteers_count'),
                 element: <Volunteers />
             },
             {

@@ -46,7 +46,7 @@ const Navbar = () => {
                         key={item.id + 1}
 
                     >
-                        <NavLink className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
+                        <NavLink className='px-4 py-3 hover:bg-[#00df9a] cursor-pointer duration-300 hover:text-black border-b-2 focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
                     </li>
                 ))}
                 {!user && <li><NavLink to={'/sign_in'} className="btn relative px-4 py-3 font-medium text-black transition duration-300 bg-green-400 rounded-md hover:bg-green-500 ease">
