@@ -2,10 +2,15 @@ import { useEffect, useState } from "react";
 import HomeCard from "./HomeCard";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { RotatingLines } from 'react-loader-spinner'
+
+
 const VolunteerNeedsSection = () => {
     const axiosSecure = useAxiosSecure();
     const [volunteers, setVolunteers] = useState([]);
+    const [sectionLoader, setsSectionLoader] = useState(false);
     useEffect(() => {
+        setsSectionLoader(true);
         getData()
     }, [])
 
@@ -13,7 +18,10 @@ const VolunteerNeedsSection = () => {
         const { data } = await axiosSecure(`/volunteers`)
         const sort = data.slice().sort((a, b) => new Date(new Date(b.deadline).toLocaleDateString()) - new Date(new Date(a.deadline).toLocaleDateString()));
         setVolunteers(sort);
+        setsSectionLoader(false);
     }
+
+    
 
     return (
         <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
@@ -21,6 +29,16 @@ const VolunteerNeedsSection = () => {
                 <h1 className="text-4xl font-bold">Volunteer Needs</h1>
                 <p className="text-md"> Dive into immediate volunteer needs where your support can create an instant impact. <br /> Explore our urgent opportunities and join hands with careCrew today.</p>
             </div>
+            {sectionLoader && <div className="flex justify-center my-12">
+                <RotatingLines
+                    visible={true}
+                    width="30"
+                    color="#00df9a"
+                    strokeWidth="5"
+                    animationDuration="0.95"
+                    ariaLabel="rotating-lines-loading"
+                />
+            </div>}
             <div className="flex justify-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
                     {
@@ -28,9 +46,9 @@ const VolunteerNeedsSection = () => {
                     }
                 </div>
             </div>
-            <div className="flex justify-center items-center">
+            {!sectionLoader && <div className="flex justify-center items-center">
                 <Link to={"/volunteers"} className="btn bg-[#00df9a] hover:bg-[#00df9aA6] text-md font-medium px-12">See All</Link>
-            </div>
+            </div>}
         </div>
     );
 };

@@ -8,6 +8,7 @@ import AddVolunteer from "../pages/AddVolunteer";
 import Volunteers from "../pages/Volunteers";
 import Details from "../pages/Details";
 import ManageMyPost from "../pages/ManageMyPost";
+import VolunteerRequest from "../pages/VolunteerRequest";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "/manage_post",
                 element: <ManageMyPost />
+            },
+            {
+                path: "/volunteer_request",
+                element: <VolunteerRequest />
             },
             {
                 path: "/sign_in",

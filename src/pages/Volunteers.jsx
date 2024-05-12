@@ -4,26 +4,32 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import { MdTableRows } from "react-icons/md";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { RotatingLines } from 'react-loader-spinner';
 
 const Volunteers = () => {
     const [volunteers, setVolunteers] = useState([]);
     const axiosSecure = useAxiosSecure();
     const [layout, setLayout] = useState(false);
+    const [volunteerLoader, setVolunteerLoader] = useState(false);
 
     useEffect(() => {
+        setVolunteerLoader(true)
         fetch('http://localhost:5000/volunteers')
             .then(response => response.json())
             .then(data => {
                 const sort = data.slice().sort((a, b) => new Date(new Date(b.deadline).toLocaleDateString()) - new Date(new Date(a.deadline).toLocaleDateString()));
                 setVolunteers(sort);
+                setVolunteerLoader(false)
             })
     }, [])
     const handleSearch = async (e) => {
         e.preventDefault();
+        setVolunteerLoader(true)
         const search = e.target.search.value;
         try {
             const { data } = await axiosSecure(`/AllVolunteer?search=${search}`);
             setVolunteers(data);
+            setVolunteerLoader(false)
         } catch (error) {
             console.log(error.message);
         }
@@ -68,6 +74,17 @@ const Volunteers = () => {
                     <p onClick={() => handleLayout("table")} className={layout ? "cursor-pointer text-[#00df9a]" : "cursor-pointer text-[#00df9a80]"}><MdTableRows size={25} /></p>
                 </div>
             </div>
+
+            {volunteerLoader && <div className="flex justify-center my-12">
+                <RotatingLines
+                    visible={true}
+                    width="30"
+                    color="#00df9a"
+                    strokeWidth="5"
+                    animationDuration="0.95"
+                    ariaLabel="rotating-lines-loading"
+                />
+            </div>}
             {!layout && <div className="flex justify-center">
                 <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12`}>
                     {

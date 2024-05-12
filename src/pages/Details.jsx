@@ -54,7 +54,7 @@ const Details = () => {
         }
         const post = { thumbnail, postTitle, description, location, volunteersNeeded: volunteersNeeded - 1, lastDate, category, postId: _id, organizer: { name: organizer?.name, email: organizer?.email, photo: organizer?.photo || null }, volunteer: { name: user?.displayName, email: user?.email, photo: user?.photoURL }, status: 'Requested' };
         try {
-            const { data } = await axiosSecure.post('/requests', post);
+            const { data } = await axiosSecure.post(`/requests?postId=${_id}`, post);
             if (data.insertedId) {
                 toast.success("Request Successfully.", {
                     style: {
