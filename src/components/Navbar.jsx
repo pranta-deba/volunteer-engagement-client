@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { MdAddChart, MdLightMode, MdManageAccounts, MdManageHistory, MdOutlineLightMode } from "react-icons/md";
 import { GoGitPullRequest } from "react-icons/go";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import {  FaHandsPraying } from "react-icons/fa6";
 import useAllProvider from '../hooks/useAllProvider';
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
@@ -38,7 +39,7 @@ const Navbar = () => {
     }
     return (
         <div className='flex justify-between items-center h-20 max-w-full mx-auto px-4 shadow-lg'>
-            <Link to={"/"} className='text-3xl font-bold text-[#00df9a]'>CareCrew</Link>
+            <Link to={"/"} className='text-3xl font-bold text-[#00df9a] flex justify-center items-center gap-1'><FaHandsPraying  />CareCrew</Link>
             <ul className='hidden md:flex items-center w-full justify-end capitalize gap-3 font-semibold'>
                 {navItems.map(item => (
                     <li

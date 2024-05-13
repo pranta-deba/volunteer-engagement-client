@@ -24,7 +24,7 @@ const VolunteerNeedsSection = () => {
     
 
     return (
-        <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
+        <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[95%] mx-auto">
             <div className="flex flex-col justify-center items-center text-center gap-4">
                 <h1 className="text-4xl font-bold">Volunteer Needs</h1>
                 <p className="text-md"> Dive into immediate volunteer needs where your support can create an instant impact. <br /> Explore our urgent opportunities and join hands with careCrew today.</p>

@@ -1,9 +1,13 @@
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Parallax, Pagination, Navigation } from 'swiper/modules';
+import { Link } from 'react-router-dom';
+import { TfiMenuAlt } from "react-icons/tfi";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { LuCalendarHeart } from "react-icons/lu";
+import { FaPeopleCarry } from "react-icons/fa";
 
 
 const Banner = () => {
@@ -47,7 +51,7 @@ const Banner = () => {
                                     <p className='text-stone-200'>
                                         At careCrew, every volunteer is valued. Join us to create positive change and build <br /> stronger, more resilient communities together.
                                     </p>
-                                    <button className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</button>
+                                    <Link to={'/volunteers'} className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +77,7 @@ const Banner = () => {
                                     <p className='text-stone-200'>
                                         At careCrew, every volunteer is valued. Join us to create positive change and build <br /> stronger, more resilient communities together.
                                     </p>
-                                    <button className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</button>
+                                    <Link to={'/volunteers'} className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +103,7 @@ const Banner = () => {
                                     <p className='text-stone-200'>
                                         At careCrew, every volunteer is valued. Join us to create positive change and build <br /> stronger, more resilient communities together.
                                     </p>
-                                    <button className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</button>
+                                    <Link to={'/volunteers'} className='btn  bg-transparent border-2 border-[#00df9a] text-[#00df9a] outline-none px-8 text-lg hover:bg-[#00df9a] hover:text-black'>Volunteer Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +111,26 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
+            <div className='mt-12 lg:-mt-28 z-50 relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-52 text-white'>
+                <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://i.ibb.co/bNGs8r7/praying-hands-together-in-turquoise-background-On.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col bg-red-400 py-12 rounded-3xl text-center hover:scale-105 transition-all cursor-pointer border-4 border-[#00df9a]'>
+                    <p><TfiMenuAlt size={40} /></p>
+                    <p className='text-2xl font-bold'>Diverse Volunteer</p>
+                    <p className='px-4'>We believe in the strength of diversity and the power it brings to our volunteer community. </p>
+                    <button className='bg-[#00df9a] btn rounded-full border-none outline-none text-black'>Learn more <IoIosArrowRoundForward size={20} /></button>
+                </div>
+                <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://i.ibb.co/MMcQDFr/close-up-of-only-5-employees-hands-holding-each-ot-4.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col bg-red-400 py-12 rounded-3xl text-center hover:scale-105 transition-all cursor-pointer border-4 border-[#00df9a]'>
+                    <p><LuCalendarHeart size={40} /></p>
+                    <p className='text-2xl font-bold'>Flexible Scheduling Options</p>
+                    <p className='px-4'>We understand that life is busy, and volunteering should fit seamlessly into your schedule.</p>
+                    <button className='bg-[#00df9a] btn rounded-full border-none outline-none text-black'>Learn more <IoIosArrowRoundForward size={20} /></button>
+                </div>
+                <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://i.ibb.co/QYCn617/close-up-of-5-employees-hands-holding-each-other.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col bg-red-400 py-12 rounded-3xl text-center hover:scale-105 transition-all cursor-pointer border-4 border-[#00df9a]'>
+                    <p><FaPeopleCarry size={40} /></p>
+                    <p className='text-2xl font-bold'>Impactful Social Initiatives</p>
+                    <p className='px-4'>we're committed to driving positive change through impactful social initiatives that address pressing challenges and create lasting solutions.</p>
+                    <button className='bg-[#00df9a] btn rounded-full border-none outline-none text-black'>Learn more <IoIosArrowRoundForward size={20} /></button>
+                </div>
+            </div>
         </div>
     );
 };

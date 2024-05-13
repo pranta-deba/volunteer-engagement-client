@@ -3,7 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import { RotatingLines } from 'react-loader-spinner';
 import useAllProvider from './hooks/useAllProvider';
-// import Footer from './components/Footer'
+import Footer from './components/Footer'
 function App() {
   const { userLoader } = useAllProvider();
   if (userLoader) {
@@ -26,7 +26,7 @@ function App() {
       <main className=''>
         <Outlet />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

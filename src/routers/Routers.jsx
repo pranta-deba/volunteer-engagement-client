@@ -27,21 +27,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/volunteers",
-                loader: ()=> fetch('http://localhost:5000/volunteers_count'),
+                loader: () => fetch('http://localhost:5000/volunteers_count'),
                 element: <Volunteers />
             },
             {
                 path: "/details/:id",
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_API_URL}/volunteers/${params.id}`),
-                element: <Details />
+                element: <Private><Details /></Private>
             },
             {
                 path: "/manage_post",
-                element: <ManageMyPost />
+                element: <Private><ManageMyPost /></Private>
             },
             {
                 path: "/volunteer_request",
-                element: <VolunteerRequest />
+                element: <Private><VolunteerRequest /></Private>
             },
             {
                 path: "/sign_in",
