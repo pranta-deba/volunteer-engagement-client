@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddVolunteer = () => {
     const { user } = useAllProvider();
@@ -60,6 +61,9 @@ const AddVolunteer = () => {
     };
     return (
         <div className="px-9 mb-20">
+            <Helmet>
+                <title>CareCrew ~ Add Volunteer</title>
+            </Helmet>
             <div className="text-center my-8">
                 <h1 className="text-3xl font-semibold mb-2">Add Volunteer Post</h1>
                 <p className="text-sm">Share volunteer opportunities and connect with potential volunteers</p>

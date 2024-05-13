@@ -7,10 +7,14 @@ import { PiHandCoinsBold } from "react-icons/pi";
 import { GiBrainstorm } from "react-icons/gi";
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { FaArrowDown } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Programs = () => {
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[95%] mx-auto my-8 md:my-2">
+            <Helmet>
+                <title>CareCrew ~ Programs</title>
+            </Helmet>
             <div className="flex flex-col md:flex-row-reverse justify-center items-center">
                 <div className="flex-1 space-y-4" >
                     <h1 className="flex items-center gap-1"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>VISION & MISSION</h1>

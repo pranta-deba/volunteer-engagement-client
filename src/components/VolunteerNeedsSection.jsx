@@ -47,7 +47,7 @@ const VolunteerNeedsSection = () => {
                 </div>
             </div>
             {!sectionLoader && <div className="flex justify-center items-center">
-                <Link to={"/volunteers"} className="btn bg-[#00df9a] hover:bg-[#00df9aA6] text-md font-medium px-12">See All</Link>
+                <Link to={"/volunteers"} className="btn bg-[#00df9a] hover:bg-[#00df9aA6] text-md font-medium px-12 text-black">See All</Link>
             </div>}
         </div>
     );

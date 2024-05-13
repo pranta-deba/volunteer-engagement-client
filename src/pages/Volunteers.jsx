@@ -5,6 +5,7 @@ import { MdTableRows } from "react-icons/md";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { Link, useLoaderData } from "react-router-dom";
 import { RotatingLines } from 'react-loader-spinner';
+import { Helmet } from "react-helmet-async";
 
 const Volunteers = () => {
     const { count } = useLoaderData();
@@ -19,7 +20,7 @@ const Volunteers = () => {
 
     useEffect(() => {
         setVolunteerLoader(true)
-        fetch(`http://localhost:5000/volunteers?page=${currentPage}&size=${itemsPerPage}`)
+        fetch(`${import.meta.env.VITE_API_URL}/volunteers?page=${currentPage}&size=${itemsPerPage}`)
             .then(response => response.json())
             .then(data => {
                 const sort = data.slice().sort((a, b) => new Date(new Date(b.deadline).toLocaleDateString()) - new Date(new Date(a.deadline).toLocaleDateString()));
@@ -60,6 +61,9 @@ const Volunteers = () => {
 
     return (
         <div className="my-8 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[90%] md:w-[100%] mx-auto">
+            <Helmet>
+                <title>CareCrew ~ Volunteers</title>
+            </Helmet>
             <div className="flex flex-col md:flex-row md:justify-around items-center p-5 gap-3">
                 <div>
                     <select onChange={(e) => handleSort(e.target.value)} className="text-[#00df9a] font-bold bg-transparent">
@@ -111,7 +115,7 @@ const Volunteers = () => {
                                 <col className="w-24" />
                             </colgroup>
                             <thead className="bg-[#00df9a]">
-                                <tr className="text-left">
+                                <tr className="text-left text-black">
                                     <th className="p-3">Thumbnail</th>
                                     <th className="p-3">Title</th>
                                     <th className="p-3">Category</th>

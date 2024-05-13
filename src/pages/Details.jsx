@@ -10,6 +10,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const Details = () => {
@@ -87,6 +88,9 @@ const Details = () => {
     };
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
+            <Helmet>
+                <title>CareCrew ~ {postTitle}</title>
+            </Helmet>
             <section className="dark:bg-gray-100 dark:text-gray-800">
                 <div className="container flex flex-col justify-center p-6 mx-auto lg:flex-row">
 
@@ -107,13 +111,13 @@ const Details = () => {
                         <p className="text-md flex items-center gap-2"><FaLocationDot size={20} className="text-[#00df9a]" />{location}
                         </p>
                         <div className="flex flex-col mt-10 space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                            <a onClick={() => document.getElementById('my_modal_6').showModal()} className="px-8 bg-transparent text-lg font-semibold rounded border-2 border-[#00df9a] hover:bg-[#00df9a] hover:text-black cursor-pointer btn"><VscGitStashApply /> Be a Volunteer</a>
+                            {volunteersNeeded < 1 ? "" : <a onClick={() => document.getElementById('my_modal_6').showModal()} className="px-8 bg-transparent text-lg font-semibold rounded border-2 border-[#00df9a] hover:bg-[#00df9a] hover:text-black cursor-pointer btn"><VscGitStashApply /> Be a Volunteer</a>}
                             <a onClick={() => document.getElementById('my_modal_5').showModal()} className="px-8 text-lg font-semibold rounded dark:border-gray-800 flex items-center gap-1 border-2 border-[#00df9a] hover:border-[#00df9a] text-black cursor-pointer btn bg-[#00df9a] hover:bg-[#00df9a] hover:text-black"><LiaPeopleCarrySolid /> Organizer</a>
                         </div>
                     </div>
 
                 </div>
-            </section>
+            </section >
             <div>
                 <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box hide-scroll">
@@ -203,7 +207,7 @@ const Details = () => {
                     </div>
                 </dialog>
             </div>
-        </div>
+        </div >
     );
 };
 

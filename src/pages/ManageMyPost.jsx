@@ -13,6 +13,7 @@ import { MdOutlineDone } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { RotatingLines } from 'react-loader-spinner';
 import NotFound from "../components/NotFound";
+import { Helmet } from "react-helmet-async";
 
 const ManageMyPost = () => {
     const { user } = useAllProvider();
@@ -174,7 +175,7 @@ const ManageMyPost = () => {
 
     if (manageMyPostLoader) {
         return (
-            <div className="flex justify-center my-12">
+            <div className="min-h-[calc(100vh-435.6px)] flex justify-center items-center my-12">
                 <RotatingLines
                     visible={true}
                     width="30"
@@ -197,6 +198,9 @@ const ManageMyPost = () => {
 
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto my-8">
+            <Helmet>
+                <title>CareCrew ~ Manage My Post</title>
+            </Helmet>
             <div className="text-center flex flex-col justify-center items-center my-8">
                 <h1 className="flex items-center gap-1 uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Manage Your Post</h1>
                 <h1 className="text-5xl font-bold">Posts Manager</h1>

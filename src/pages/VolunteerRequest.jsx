@@ -8,6 +8,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { RotatingLines } from "react-loader-spinner";
 import NotFound from "../components/NotFound";
+import { Helmet } from "react-helmet-async";
 
 const VolunteerRequest = () => {
     const { user } = useAllProvider();
@@ -62,7 +63,7 @@ const VolunteerRequest = () => {
     }
     if (myRequestLoader) {
         return (
-            <div className="flex justify-center my-12">
+            <div className="min-h-[calc(100vh-435.6px)] flex justify-center items-center my-12">
                 <RotatingLines
                     visible={true}
                     width="30"
@@ -71,6 +72,9 @@ const VolunteerRequest = () => {
                     animationDuration="0.95"
                     ariaLabel="rotating-lines-loading"
                 />
+                <Helmet>
+                    <title>CareCrew ~ Your Request</title>
+                </Helmet>
             </div>
         )
     }
@@ -84,13 +88,16 @@ const VolunteerRequest = () => {
 
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto my-8">
+            <Helmet>
+                <title>CareCrew ~ Your Request</title>
+            </Helmet>
             <div className="text-center flex flex-col justify-center items-center my-8">
                 <h1 className="flex items-center gap-1 uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Manage Your Requested</h1>
                 <h1 className="text-5xl font-bold">Request Manager</h1>
             </div>
             <div className="flex flex-col lg:flex-row gap-4 justify-center">
                 <div className="flex-1">
-                <h1 className="flex items-center gap-1 uppercase px-8"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Your Requested : {myRequest.length}</h1>
+                    <h1 className="flex items-center gap-1 uppercase px-8"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Your Requested : {myRequest.length}</h1>
                     <div className="w-full p-2 mx-auto sm:p-4 dark:text-gray-800">
                         <div className="overflow-x-auto rounded-xl">
                             <table className="min-w-full text-xs">
@@ -109,7 +116,7 @@ const VolunteerRequest = () => {
                                         myRequest.map(item => (
                                             <tr key={item._id} className="border-b border-opacity-20 dark:border-gray-300 dark:bg-gray-50">
                                                 <td className="p-3 flex flex-col items-center">
-                                                    <img src={item?.thumbnail} className="w-12 h-12 rounded-full object-cover" />
+                                                    <img src={item?.organizer?.photo} className="w-12 h-12 rounded-full object-cover" />
                                                     <p>{item?.organizer?.name}</p>
                                                 </td>
                                                 <td className="p-3">

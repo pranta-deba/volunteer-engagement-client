@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { CiCircleQuestion } from "react-icons/ci";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -15,7 +16,7 @@ const About = () => {
         },
         {
             "title": "What We Do",
-            "ans": "CThrough our Volunteer Management Website, we provide a centralized platform where volunteers can discover, sign up for, and track their volunteer activities. We partner with local organizations, nonprofits, and community groups to offer a diverse range of volunteer opportunities across various causes and sectors."
+            "ans": "Through our Volunteer Management Website, we provide a centralized platform where volunteers can discover, sign up for, and track their volunteer activities. We partner with local organizations, nonprofits, and community groups to offer a diverse range of volunteer opportunities across various causes and sectors."
         },
         {
             "title": "Why Volunteer with CareCrew",
@@ -83,6 +84,9 @@ const About = () => {
 
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[95%] lg:w-[80%] mx-auto my-8 md:my-2">
+            <Helmet>
+                <title>CareCrew ~ About</title>
+            </Helmet>
             <div className="text-center flex flex-col justify-center items-center mb-12">
                 <h1 className="flex items-center gap-1"><p className="w-[30px] h-[2px] bg-[#00df9a]"></p>About CareCrew</h1>
                 <h1 className="text-5xl font-bold">About Us</h1>
@@ -94,7 +98,7 @@ const About = () => {
                     <p className="mt-4" id="qes">{ans.ans}</p>
                 </div>
                 <div className="lg:px-20">
-                    <h1 className="uppercase font-bold">Impotent FAQ'S</h1>
+                    <h1 className="uppercase font-bold">Impotent FAQS</h1>
                     <div className="space-y-4 mt-4">
                         {
                             faq.map(f => (

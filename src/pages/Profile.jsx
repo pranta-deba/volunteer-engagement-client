@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
     const { user } = useAllProvider();
@@ -45,6 +46,9 @@ const Profile = () => {
     }
     return (
         <div className="min-h-screen max-w-[1600px] w-[95%] lg:w-[80%] mx-auto my-8 md:mb-20">
+            <Helmet>
+                <title>CareCrew ~ Profile</title>
+            </Helmet>
             <div className="text-center flex flex-col justify-center items-center mb-12">
                 <h1 className="flex items-center gap-1 uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Manage Your Profile</h1>
                 <h1 className="text-5xl font-bold">Profile</h1>
