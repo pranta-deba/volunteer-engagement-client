@@ -13,6 +13,7 @@
 5. Join us in cultivating a vibrant community of volunteers and contributors. Let's create meaningful connections and foster impactful collaborations together!
 
 > Resources : 
+- [Axios](https://axios-http.com/docs/intro)
 - [Tailwind CSS](https://tailwindcss.com/docs/installation/play-cdn)
 - [DaisyUI](https://daisyui.com/docs/install/)
 - [Chakra UI](https://v2.chakra-ui.com/getting-started)
@@ -25,7 +26,7 @@
 - [React Animated Numbers](https://www.npmjs.com/package/react-animated-numbers)
 - [React Tabs](https://www.npmjs.com/package/react-tabs)
 - [React Helmet Async](https://www.npmjs.com/package/react-helmet-async)
-- [Axios](https://axios-http.com/docs/intro)
+- [AOS](https://www.npmjs.com/package/aos)
 
 > Services  :
 - [Firebase](https://firebase.google.com/) - Elevating your CareCrew experience with scalable and efficient backend services.
