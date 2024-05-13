@@ -12,6 +12,7 @@ import VolunteerRequest from "../pages/VolunteerRequest";
 import Private from "./Private";
 import Programs from "../pages/Programs";
 import About from "../pages/About";
+import Profile from "../pages/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/volunteers",
-                loader: () => fetch('http://localhost:5000/volunteers_count'),
+                loader: () => fetch(`${import.meta.env.VITE_API_URL}/volunteers_count`),
                 element: <Volunteers />
             },
             {
@@ -48,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: "/about",
                 element: <About/>
+            },
+            {
+                path: "/profile",
+                element: <Private><Profile/></Private>
             },
             {
                 path: "/volunteer_request",

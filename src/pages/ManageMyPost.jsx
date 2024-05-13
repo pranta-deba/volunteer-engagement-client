@@ -196,13 +196,14 @@ const ManageMyPost = () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
-            <div className="text-center my-8">
-                <h1 className="text-3xl font-semibold mb-2">Manage Your Post</h1>
+        <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto my-8">
+            <div className="text-center flex flex-col justify-center items-center my-8">
+                <h1 className="flex items-center gap-1 uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Manage Your Post</h1>
+                <h1 className="text-5xl font-bold">Posts Manager</h1>
             </div>
             <div className="flex flex-col lg:flex-row gap-4 justify-center">
                 <div className="flex-1">
-                    <h1 className="text-2xl p-2 sm:p-4 font-semibold text-center">Your Post : {myPosts?.length}</h1>
+                    <h1 className="flex items-center gap-1 uppercase px-8"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Your Post : {myPosts.length}</h1>
                     <div className="w-full p-2 mx-auto sm:p-4 dark:text-gray-800">
                         <div className="overflow-x-auto rounded-xl">
                             <table className="min-w-full text-xs">
@@ -253,7 +254,7 @@ const ManageMyPost = () => {
                 </div>
 
                 <div className="flex-1">
-                    <h1 className="text-2xl p-2 sm:p-4 font-semibold text-center">Post Request : {myPostRequests?.length}</h1>
+                    <h1 className="flex items-center gap-1 uppercase px-8"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Post Request : {myPostRequests?.length}</h1>
                     <div className="w-full p-2 mx-auto sm:p-4 dark:text-gray-800">
                         <div className="overflow-x-auto rounded-xl">
                             <table className="min-w-full text-xs">

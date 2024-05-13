@@ -3,8 +3,10 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAllProvider from "../hooks/useAllProvider";
 import { RotatingLines } from 'react-loader-spinner'
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const SignUp = () => {
+    const axiosSecure = useAxiosSecure();
     const [passToggle, setPassToggle] = useState(false);
     const [passToggle2, setPassToggle2] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
@@ -64,21 +66,24 @@ const SignUp = () => {
                 updateUser(userData.name, userData.photoURL)
                     .then(() => {
                         setUpdateTrigger(!updateTrigger);
+                        e.target.reset();
+                        toast.success("Account Create Successfully.", {
+                            style: {
+                                border: '1px solid #00df9a',
+                                padding: '10px',
+                                color: '#00df9a',
+                            },
+                            iconTheme: {
+                                primary: '#00df9a',
+                                secondary: 'white',
+                            },
+                        });
+                        axiosSecure.post('/users',{displayName: registerUser?.displayName,email:registerUser?.email,createdAt:registerUser?.metadata?.createdAt}).then(()=> {
+                            navigate(from);
+                            setSignUpLoader(false)
+                        })
+                        
                     })
-                setSignUpLoader(false)
-                e.target.reset();
-                toast.success("Account Create Successfully.", {
-                    style: {
-                        border: '1px solid #00df9a',
-                        padding: '10px',
-                        color: '#00df9a',
-                    },
-                    iconTheme: {
-                        primary: '#00df9a',
-                        secondary: 'white',
-                    },
-                });
-                navigate(from);
             }
         } catch (error) {
             toast.error(error.message.split('/')[1].split(')')[0], {

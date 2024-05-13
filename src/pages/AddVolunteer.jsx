@@ -59,7 +59,7 @@ const AddVolunteer = () => {
         }
     };
     return (
-        <div className="px-9">
+        <div className="px-9 mb-20">
             <div className="text-center my-8">
                 <h1 className="text-3xl font-semibold mb-2">Add Volunteer Post</h1>
                 <p className="text-sm">Share volunteer opportunities and connect with potential volunteers</p>
