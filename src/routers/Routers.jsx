@@ -11,6 +11,7 @@ import ManageMyPost from "../pages/ManageMyPost";
 import VolunteerRequest from "../pages/VolunteerRequest";
 import Private from "./Private";
 import Programs from "../pages/Programs";
+import About from "../pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path: "/program",
                 element: <Programs/>
+            },
+            {
+                path: "/about",
+                element: <About/>
             },
             {
                 path: "/volunteer_request",

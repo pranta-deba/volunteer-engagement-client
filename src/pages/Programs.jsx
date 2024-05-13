@@ -32,6 +32,30 @@ const Programs = () => {
                     <img src="https://i.ibb.co/mCx8jhx/Image-of-a-smiling-architect-person-holding-the-ch-removebg-preview.png" alt="" />
                 </div>
             </div>
+            <div className="my-12 md:my-20">
+                <div className="text-center flex flex-col justify-center items-center mb-12">
+                    <h1 className="flex items-center gap-1"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>PAST EVENTS HIGHLIGHTS</h1>
+                    <h1 className="text-5xl font-bold">The Memorable Moments From <br /> Our Past Events.</h1>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 my-4 gap-6">
+                    <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://i.ibb.co/9Tm2fCW/Children-s-celebration-on-Iraqi-National-Day.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col py-12 rounded-3xl text-center cursor-pointer px-2 overflow-hidden h-[400px] group relative'>
+                        <p className="animate-bounce bg-[#00df9a] p-2 rounded-full"><FaArrowDown size={30} /></p>
+                        <div className="absolute bottom-0 -mb-36 md:-mb-28 group-hover:mb-0 bg-white text-black w-[80%] mx-auto p-3 flex flex-col items-center gap-3 transition-all rounded-b rounded-2xl">
+                            <p className="w-[60px] h-[2px] bg-[#00df9a] mb-8"></p>
+                            <h1 className="text-2xl font-semibold">Family-Friendly Activities</h1>
+                            <p>Enjoy a range of family-friendly activities and entertainment, including games, arts and crafts, live performances, and more.</p>
+                        </div>
+                    </div>
+                    <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://i.ibb.co/ZhbHvD4/A-photo-of-a-person-giving-a-donation-to-a-charity.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col py-12 rounded-3xl text-center cursor-pointer px-2 overflow-hidden h-[400px] group relative'>
+                        <p className="animate-bounce bg-[#00df9a] p-2 rounded-full"><FaArrowDown size={30} /></p>
+                        <div className="absolute bottom-0 -mb-36 md:-mb-28 group-hover:mb-0 bg-white text-black w-[80%] mx-auto p-3 flex flex-col items-center gap-3 transition-all rounded-b rounded-2xl">
+                            <p className="w-[60px] h-[2px] bg-[#00df9a] mb-8"></p>
+                            <h1 className="text-2xl font-semibold">Volunteer Opportunities</h1>
+                            <p>Take part in meaningful volunteer activities designed to support and uplift those in need within our community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="my-12">
                 <div className="text-center flex flex-col justify-center items-center">
                     <h1 className="flex items-center gap-1"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>PROGRAMS & INITIATIVES</h1>
@@ -76,30 +100,7 @@ const Programs = () => {
                     </div>
                 </div>
             </div>
-            <div className="my-12">
-                <div className="text-center flex flex-col justify-center items-center">
-                    <h1 className="flex items-center gap-1"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>PAST EVENTS HIGHLIGHTS</h1>
-                    <h1 className="text-5xl font-bold">The Memorable Moments From <br /> Our Past Events.</h1>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 my-4 gap-6">
-                    <div style={{ backgroundImage: "url('https://i.ibb.co/9Tm2fCW/Children-s-celebration-on-Iraqi-National-Day.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col py-12 rounded-3xl text-center cursor-pointer px-2 overflow-hidden h-[400px] group relative'>
-                        <p className="animate-bounce bg-[#00df9a] p-2 rounded-full"><FaArrowDown size={30} /></p>
-                        <div className="absolute bottom-0 -mb-36 md:-mb-28 group-hover:mb-0 bg-white text-black w-[80%] mx-auto p-3 flex flex-col items-center gap-3 transition-all rounded-b rounded-2xl">
-                            <p className="w-[60px] h-[2px] bg-[#00df9a] mb-8"></p>
-                            <h1 className="text-2xl font-semibold">Charity Events</h1>
-                            <p>Where we come together as a community to make a difference and support causes that matter.s</p>
-                        </div>
-                    </div>
-                    <div style={{ backgroundImage: "url('https://i.ibb.co/ZhbHvD4/A-photo-of-a-person-giving-a-donation-to-a-charity.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col py-12 rounded-3xl text-center cursor-pointer px-2 overflow-hidden h-[400px] group relative'>
-                        <p className="animate-bounce bg-[#00df9a] p-2 rounded-full"><FaArrowDown size={30} /></p>
-                        <div className="absolute bottom-0 -mb-36 md:-mb-28 group-hover:mb-0 bg-white text-black w-[80%] mx-auto p-3 flex flex-col items-center gap-3 transition-all rounded-b rounded-2xl">
-                            <p className="w-[60px] h-[2px] bg-[#00df9a] mb-8"></p>
-                            <h1 className="text-2xl font-semibold">Charity Events</h1>
-                            <p>Where we come together as a community to make a difference and support causes that matter.s</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     );
 };

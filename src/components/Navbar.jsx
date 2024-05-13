@@ -20,7 +20,6 @@ const Navbar = () => {
         { id: 2, text: 'Volunteer', to: '/volunteers' },
         { id: 3, text: 'Program', to: '/program' },
         { id: 4, text: 'About', to: '/about' },
-        { id: 5, text: 'Blogs', to: '/blogs' },
     ];
     useEffect(() => {
         document.querySelector('html').setAttribute('data-theme', themeController);

@@ -13,7 +13,7 @@ const sections = [
             { "title": "Home", "link": "/" },
             { "title": "Need Volunteer", "link": "/volunteers" },
             { "title": "Program", "link": "/program" },
-            { "title": "Blogs", "link": "/blogs" }
+            { "title": "Blogs", "link": "/" }
         ]
     },
     {
