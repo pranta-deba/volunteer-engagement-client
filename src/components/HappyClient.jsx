@@ -7,7 +7,7 @@ const HappyClient = () => {
     return (
         <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/bNGs8r7/praying-hands-together-in-turquoise-background-On.jpg')" }} className="mb-12 max-w-[1600px] w-[100%] mx-auto py-20 bg-fixed bg-cover bg-no-repeat shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <div className="flex flex-col items-center gap-3 text-white">
+                <div data-aos="fade-up" data-aos-duration="500" className="flex flex-col items-center gap-3 text-white">
                     <div className="flex items-center gap-3 text-5xl font-semibold text-[#E96326]"><BiSolidDonateBlood /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
@@ -22,7 +22,7 @@ const HappyClient = () => {
                     /></div>
                     <p>DONATIONS MADE</p>
                 </div>
-                <div className="flex flex-col items-center gap-3 text-white">
+                <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-col items-center gap-3 text-white">
                     <div className="flex items-center gap-3 text-5xl font-semibold text-red-600"><HiOutlineEmojiHappy /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
@@ -37,7 +37,7 @@ const HappyClient = () => {
                     /></div>
                     <p>HAPPY CHILDREN</p>
                 </div>
-                <div className="flex flex-col items-center gap-3 text-white">
+                <div data-aos="fade-up" data-aos-duration="1500" className="flex flex-col items-center gap-3 text-white">
                     <div className="flex items-center gap-3 text-5xl font-semibold text-yellow-500"><GiSelfLove /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
@@ -52,7 +52,7 @@ const HappyClient = () => {
                     /></div>
                     <p>VOLUNTEERING HELPERS</p>
                 </div>
-                <div className="flex flex-col items-center gap-3 text-white">
+                <div data-aos="fade-up" data-aos-duration="2000" className="flex flex-col items-center gap-3 text-white">
                     <div className="flex items-center gap-3 text-5xl font-semibold text-green-500"><FaHandFist /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({

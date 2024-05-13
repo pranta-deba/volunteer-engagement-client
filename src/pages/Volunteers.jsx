@@ -95,7 +95,7 @@ const Volunteers = () => {
                     ariaLabel="rotating-lines-loading"
                 />
             </div>}
-            {!layout && <div className="flex justify-center">
+            {!layout && <div data-aos="fade-up" data-aos-duration="500" className="flex justify-center">
                 <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12`}>
                     {
                         volunteers.map(item => <HomeCard key={item._id} item={item} />)

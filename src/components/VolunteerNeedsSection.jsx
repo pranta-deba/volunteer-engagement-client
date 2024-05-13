@@ -26,8 +26,8 @@ const VolunteerNeedsSection = () => {
     return (
         <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[95%] mx-auto">
             <div className="flex flex-col justify-center items-center text-center gap-4">
-                <h1 className="flex items-center gap-1 text-3xl font-bold uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Volunteer Needs</h1>
-                <p className="text-md w-[60%] mx-auto text-center"> Dive into immediate volunteer needs where your support can create an instant impact.</p>
+                <h1 data-aos="fade-up" className="flex items-center gap-1 text-3xl font-bold uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Volunteer Needs</h1>
+                <p data-aos="fade-up" className="text-md w-[60%] mx-auto text-center"> Dive into immediate volunteer needs where your support can create an instant impact.</p>
             </div>
             {sectionLoader && <div className="flex justify-center my-12">
                 <RotatingLines
@@ -40,7 +40,7 @@ const VolunteerNeedsSection = () => {
                 />
             </div>}
             <div className="flex justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
+                <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
                     {
                         volunteers.slice(0, 6).map(item => <HomeCard key={item._id} item={item} />)
                     }

@@ -120,7 +120,7 @@ const About = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-center gap-8">
                     {
                         teams.map((team, index) => (
-                            <div key={index} className="rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+                            <div data-aos="fade-up" key={index} className="rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
                                 <img src={team.photo} alt="" className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500" />
                                 <div className="flex flex-col justify-between p-6 space-y-8">
                                     <div className="space-y-2">
