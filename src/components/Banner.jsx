@@ -60,7 +60,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className=''>
-                        <div className='relative bg-cover bg-no-repeat bg-center h-[600px] py-32 text-white px-32'>
+                        <div className='relative bg-cover bg-no-repeat bg-center h-[600px] py-32 text-white px-10 md:px-32'>
                             <div className='absolute inset-0 bg-black opacity-50 z-0'></div>
                             <div className="absolute inset-0 z-10">
                                 <img src="https://i.ibb.co/gzrhsns/close-up-of-only-5-employees-hands-holding-each-ot-3.jpg" alt="Background Image" className='w-full h-full object-cover' />
@@ -70,7 +70,7 @@ const Banner = () => {
                                 <h1 className="subtitle uppercase relative z-30" data-swiper-parallax="-200">
                                     Join careCrew Today!
                                 </h1>
-                                <h1 className="subtitle text-6xl uppercase font-bold relative z-30" data-swiper-parallax="-200">
+                                <h1 className="subtitle text-4xl md:text-6xl uppercase font-bold relative z-30" data-swiper-parallax="-200">
                                     Empower Change with <br /> <span className='text-[#00df9a]'>careCrew!</span>
                                 </h1>
                                 <div className="text relative z-30 uppercase space-y-4" data-swiper-parallax="-100">
@@ -86,7 +86,7 @@ const Banner = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className=''>
-                        <div className='relative bg-cover bg-no-repeat bg-center h-[600px] py-32 text-white px-32'>
+                        <div className='relative bg-cover bg-no-repeat bg-center h-[600px] py-32 text-white px-10 md:px-32'>
                             <div className='absolute inset-0 bg-black opacity-50 z-0'></div>
                             <div className="absolute inset-0 z-10">
                                 <img src="https://i.ibb.co/JqfJWCz/close-up-of-only-5-employees-hands-holding-each-ot-2.jpg" alt="Background Image" className='w-full h-full object-cover' />
@@ -96,7 +96,7 @@ const Banner = () => {
                                 <h1 className="subtitle uppercase relative z-30" data-swiper-parallax="-200">
                                     Join careCrew Today!
                                 </h1>
-                                <h1 className="subtitle text-6xl uppercase font-bold relative z-30" data-swiper-parallax="-200">
+                                <h1 className="subtitle text-4xl md:text-6xl uppercase font-bold relative z-30" data-swiper-parallax="-200">
                                     Empower Change with <br /> <span className='text-[#00df9a]'>careCrew!</span>
                                 </h1>
                                 <div className="text relative z-30 uppercase space-y-4" data-swiper-parallax="-100">
@@ -111,7 +111,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
             </Swiper>
-            <div className='mt-12 lg:-mt-28 z-50 relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-52 text-white'>
+            <div className='mt-12 lg:-mt-28 z-30 relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-52 text-white'>
                 <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://i.ibb.co/bNGs8r7/praying-hands-together-in-turquoise-background-On.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col bg-red-400 py-12 rounded-3xl text-center hover:scale-105 transition-all cursor-pointer border-4 border-[#00df9a]'>
                     <p><TfiMenuAlt size={40} /></p>
                     <p className='text-2xl font-bold'>Diverse Volunteer</p>

@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { MdAddChart, MdLightMode, MdManageAccounts, MdManageHistory, MdOutlineLightMode } from "react-icons/md";
 import { GoGitPullRequest } from "react-icons/go";
 import { RiLogoutBoxLine } from "react-icons/ri";
-import {  FaHandsPraying } from "react-icons/fa6";
+import { FaHandsPraying } from "react-icons/fa6";
 import useAllProvider from '../hooks/useAllProvider';
 import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
@@ -38,10 +38,12 @@ const Navbar = () => {
     }
     return (
         <div className='flex justify-between items-center h-20 max-w-full mx-auto px-4 shadow-lg'>
-            <Link to={"/"} className='text-3xl font-bold text-[#00df9a] flex justify-center items-center gap-1'><FaHandsPraying  />CareCrew</Link>
-            <ul className='hidden md:flex items-center w-full justify-end capitalize gap-3 font-semibold'>
+            <Link to={"/"} className='text-3xl font-bold text-[#00df9a] flex justify-center items-center gap-1'><FaHandsPraying />CareCrew</Link>
+
+            <ul className='flex items-center w-full justify-end capitalize gap-3 font-semibold'>
                 {navItems.map(item => (
                     <li
+                        className='hidden md:flex'
 
                         key={item.id + 1}
 
@@ -49,6 +51,7 @@ const Navbar = () => {
                         <NavLink className='px-4 py-3 hover:bg-[#00df9a] cursor-pointer duration-300 hover:text-black border-b-2 focus:bg-[#00df9a] focus:text-black' to={item.to}>{item.text}</NavLink>
                     </li>
                 ))}
+
                 {!user && <li><NavLink to={'/sign_in'} className="btn relative px-4 py-3 font-medium text-black transition duration-300 bg-green-400 rounded-md hover:bg-green-500 ease">
                     <span className="absolute bottom-0 left-0 h-full ">
                         <svg viewBox="0 0 487 487" className="w-auto h-full opacity-100 object-stretch" xmlns="http://www.w3.org/2000/svg"><path d="M0 .3c67 2.1 134.1 4.3 186.3 37 52.2 32.7 89.6 95.8 112.8 150.6 23.2 54.8 32.3 101.4 61.2 149.9 28.9 48.4 77.7 98.8 126.4 149.2H0V.3z" fill="#FFF" fillRule="nonzero" fillOpacity=".1"></path></svg>
@@ -58,8 +61,8 @@ const Navbar = () => {
                     </span>
                     <span className="relative">Sign In</span></NavLink></li>}
             </ul>
-            {user && <div className='flex items-center gap-2 ms-2'>
-                <div className="dropdown dropdown-end">
+            <div className='flex items-center gap-2 ms-2'>
+                {user && <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-16 rounded-full border-2 border-[#00df9a]">
                             <img alt="" src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} />
@@ -78,20 +81,25 @@ const Navbar = () => {
 
                         <li onClick={logOut}><Link className='px-4 py-3 hover:bg-[#00df9a] rounded-md cursor-pointer duration-300 hover:text-black border-b-2 border-transparent focus:bg-[#00df9a]'><RiLogoutBoxLine />Logout</Link></li>
                     </ul>
-                </div>
+                </div>}
                 <div onClick={handleNav} className='block md:hidden'>
-                    {nav ? <AiOutlineClose size={35} className='text-[#00df9a]' /> : <AiOutlineMenu size={35} className='text-[#00df9a]' />}
+                    {
+                        nav ?
+                            <AiOutlineClose size={35} className='text-[#00df9a]' />
+                            :
+                            <AiOutlineMenu size={35} className='text-[#00df9a]' />
+                    }
                 </div>
-            </div>}
+            </div>
 
             <ul
-                className={`flex flex-col gap-6 capitalize font-semibold px-3 z-30  
+                className={`flex flex-col gap-6 capitalize font-semibold px-3 z-50  
                     ${nav
                         ? 'fixed md:hidden left-0 top-0 w-[60%] h-full bg-white dark:bg-black ease-in-out duration-500'
                         : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'}
                 `}
             >
-                <Link to={"/"} className='w-full text-3xl font-bold text-[#00df9a] m-4'>CareCrew</Link>
+                <Link to={"/"} className='w-full flex items-center gap-1 text-3xl font-bold text-[#00df9a] m-4'><FaHandsPraying />CareCrew</Link>
                 {navItems.map(item => (
                     <li
                         className=''

@@ -96,7 +96,7 @@ const Details = () => {
 
                     <div className="flex-1 flex items-center justify-center relative max-h-[600px] overflow-hidden rounded-lg">
                         <img src={thumbnail} alt="" className="w-full h-full object-cover rounded-md" />
-                        <p className="absolute bg-[#00df9a] p-2 rounded-md text-lg font-bold top-0 left-0">{volunteersNeeded} people needed</p>
+                        <p className="absolute bg-[#00df9a] p-2 rounded-md text-lg font-bold top-0 left-0 text-black">{volunteersNeeded} people needed</p>
                     </div>
 
                     <div className="flex-1 flex flex-col justify-center gap-7 p-6 text-center rounded-sm lg:text-left">

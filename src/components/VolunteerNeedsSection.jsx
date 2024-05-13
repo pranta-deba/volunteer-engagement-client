@@ -40,7 +40,7 @@ const VolunteerNeedsSection = () => {
                 />
             </div>}
             <div className="flex justify-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center items-center  gap-4 w-full my-8 md:mx-12">
                     {
                         volunteers.slice(0, 6).map(item => <HomeCard key={item._id} item={item} />)
                     }
