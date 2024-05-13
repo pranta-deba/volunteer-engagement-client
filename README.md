@@ -11,3 +11,4 @@
 - [](https://swiperjs.com/get-started)
 - [](https://reactdatepicker.com/)
 - [](https://sweetalert2.github.io)
+- [](https://www.npmjs.com/package/react-animated-numbers)
