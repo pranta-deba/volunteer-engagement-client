@@ -8,7 +8,7 @@ const HappyClient = () => {
         <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/bNGs8r7/praying-hands-together-in-turquoise-background-On.jpg')" }} className="mb-12 max-w-[1600px] w-[100%] mx-auto py-20 bg-fixed bg-cover bg-no-repeat shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <div className="flex flex-col items-center gap-3 text-white">
-                    <p className="flex items-center gap-3 text-5xl font-semibold text-[#E96326]"><BiSolidDonateBlood /><AnimatedNumbers
+                    <div className="flex items-center gap-3 text-5xl font-semibold text-[#E96326]"><BiSolidDonateBlood /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
                             type: "spring",
@@ -19,11 +19,11 @@ const HappyClient = () => {
                             fontSize: 40,
                             color: "#E96326",
                         }}
-                    /></p>
+                    /></div>
                     <p>DONATIONS MADE</p>
                 </div>
                 <div className="flex flex-col items-center gap-3 text-white">
-                    <p className="flex items-center gap-3 text-5xl font-semibold text-red-600"><HiOutlineEmojiHappy /><AnimatedNumbers
+                    <div className="flex items-center gap-3 text-5xl font-semibold text-red-600"><HiOutlineEmojiHappy /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
                             type: "spring",
@@ -34,11 +34,11 @@ const HappyClient = () => {
                             fontSize: 40,
                         }}
                         className="text-red-600"
-                    /></p>
+                    /></div>
                     <p>HAPPY CHILDREN</p>
                 </div>
                 <div className="flex flex-col items-center gap-3 text-white">
-                    <p className="flex items-center gap-3 text-5xl font-semibold text-yellow-500"><GiSelfLove /><AnimatedNumbers
+                    <div className="flex items-center gap-3 text-5xl font-semibold text-yellow-500"><GiSelfLove /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
                             type: "spring",
@@ -49,11 +49,11 @@ const HappyClient = () => {
                             fontSize: 40,
                         }}
                         className="text-yellow-500"
-                    /></p>
+                    /></div>
                     <p>VOLUNTEERING HELPERS</p>
                 </div>
                 <div className="flex flex-col items-center gap-3 text-white">
-                    <p className="flex items-center gap-3 text-5xl font-semibold text-green-500"><FaHandFist /><AnimatedNumbers
+                    <div className="flex items-center gap-3 text-5xl font-semibold text-green-500"><FaHandFist /><AnimatedNumbers
                         includeComma
                         transitions={(index) => ({
                             type: "spring",
@@ -64,7 +64,7 @@ const HappyClient = () => {
                             fontSize: 40,
                         }}
                         className="text-green-500"
-                    /></p>
+                    /></div>
                     <p>EDUCATED CHILDREN</p>
                 </div>
             </div>

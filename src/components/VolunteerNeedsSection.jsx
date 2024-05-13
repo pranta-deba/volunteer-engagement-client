@@ -21,13 +21,13 @@ const VolunteerNeedsSection = () => {
         setsSectionLoader(false);
     }
 
-    
+
 
     return (
         <div className="my-12 min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[95%] mx-auto">
             <div className="flex flex-col justify-center items-center text-center gap-4">
-                <h1 className="text-4xl font-bold">Volunteer Needs</h1>
-                <p className="text-md"> Dive into immediate volunteer needs where your support can create an instant impact. <br /> Explore our urgent opportunities and join hands with careCrew today.</p>
+                <h1 className="flex items-center gap-1 text-3xl font-bold uppercase"><p className="w-[60px] h-[2px] bg-[#00df9a]"></p>Volunteer Needs</h1>
+                <p className="text-md w-[60%] mx-auto text-center"> Dive into immediate volunteer needs where your support can create an instant impact.</p>
             </div>
             {sectionLoader && <div className="flex justify-center my-12">
                 <RotatingLines

@@ -127,7 +127,7 @@ const Banner = () => {
                 <div style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.6)), url('https://i.ibb.co/QYCn617/close-up-of-5-employees-hands-holding-each-other.jpg')" }} className='bg-cover bg-no-repeat text-white flex justify-center items-center gap-4 flex-col bg-red-400 py-12 rounded-3xl text-center hover:scale-105 transition-all cursor-pointer border-4 border-[#00df9a]'>
                     <p><FaPeopleCarry size={40} /></p>
                     <p className='text-2xl font-bold'>Impactful Social Initiatives</p>
-                    <p className='px-4'>we're committed to driving positive change through impactful social initiatives that address pressing challenges and create lasting solutions.</p>
+                    <p className='px-4'>were committed to driving positive change through impactful social initiatives that address pressing challenges and create lasting solutions.</p>
                     <button className='bg-[#00df9a] btn rounded-full border-none outline-none text-black'>Learn more <IoIosArrowRoundForward size={20} /></button>
                 </div>
             </div>
