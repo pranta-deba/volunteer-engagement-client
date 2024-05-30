@@ -27,6 +27,7 @@
 - [React Tabs](https://www.npmjs.com/package/react-tabs)
 - [React Helmet Async](https://www.npmjs.com/package/react-helmet-async)
 - [AOS](https://www.npmjs.com/package/aos)
+- [Marquee](https://www.npmjs.com/package/react-fast-marquee)
 
 > Services  :
 - [Firebase](https://firebase.google.com/) - Elevating your CareCrew experience with scalable and efficient backend services.

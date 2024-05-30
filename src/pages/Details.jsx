@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { FaLocationDot, FaUserTie } from "react-icons/fa6";
-import { MdAttachEmail, MdDateRange } from "react-icons/md";
+import { MdAttachEmail, MdDateRange, MdOutlineRateReview } from "react-icons/md";
 import { VscGitStashApply } from "react-icons/vsc";
 import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { IoClose } from "react-icons/io5";
@@ -86,6 +86,64 @@ const Details = () => {
             console.log(error.message);
         }
     };
+
+    // add reviews
+    const handleReviews = async e => {
+        e.preventDefault();
+        const review = {
+            review_by_name: user?.displayName,
+            review_by_email: user?.email,
+            review_by_photo: user?.photoURL,
+            review_for_email: organizer?.email,
+            review_for_name: organizer?.name,
+            review_for_photo: organizer?.photo || null,
+            reviews: e.target.message.value,
+            date: new Date(),
+        }
+        try {
+            const { data } = await axiosSecure.post(`/reviews`, review);
+            if (data.insertedId) {
+                toast.success("Send Successfully.", {
+                    style: {
+                        border: '1px solid #00df9a',
+                        padding: '10px',
+                        color: '#00df9a',
+                    },
+                    iconTheme: {
+                        primary: '#00df9a',
+                        secondary: 'white',
+                    },
+                });
+                document.getElementById('my_modal_5').close();
+                e.target.reset();
+            } else if (data.error) {
+                toast.error(data.error, {
+                    style: {
+                        border: '1px solid red',
+                        padding: '10px',
+                        color: 'red',
+                    },
+                    iconTheme: {
+                        primary: 'red',
+                        secondary: '#FFFAEE',
+                    },
+                });
+            }
+        } catch (error) {
+            toast.error(error.message, {
+                style: {
+                    border: '1px solid red',
+                    padding: '10px',
+                    color: 'red',
+                },
+                iconTheme: {
+                    primary: 'red',
+                    secondary: '#FFFAEE',
+                },
+            });
+        }
+
+    }
     return (
         <div className="min-h-[calc(100vh-435.6px)] max-w-[1600px] w-[100%] mx-auto">
             <Helmet>
@@ -111,8 +169,8 @@ const Details = () => {
                         <p className="text-md flex items-center gap-2"><FaLocationDot size={20} className="text-[#00df9a]" />{location}
                         </p>
                         <div className="flex flex-col mt-10 space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                            {volunteersNeeded < 1 ? "" : <a onClick={() => document.getElementById('my_modal_6').showModal()} className="px-8 bg-transparent text-lg font-semibold rounded border-2 border-[#00df9a] hover:bg-[#00df9a] hover:text-black cursor-pointer btn"><VscGitStashApply /> Be a Volunteer</a>}
-                            <a onClick={() => document.getElementById('my_modal_5').showModal()} className="px-8 text-lg font-semibold rounded dark:border-gray-800 flex items-center gap-1 border-2 border-[#00df9a] hover:border-[#00df9a] text-black cursor-pointer btn bg-[#00df9a] hover:bg-[#00df9a] hover:text-black"><LiaPeopleCarrySolid /> Organizer</a>
+                            {volunteersNeeded < 1 ? "" : <button disabled={organizer?.email === user?.email} onClick={() => document.getElementById('my_modal_6').showModal()} className={`${organizer?.email === user?.email ? "cursor-wait" : "cursor-pointer"} px-8 bg-transparent text-lg font-semibold rounded border-2 border-[#00df9a] hover:bg-[#00df9a] hover:text-black  btn`}><VscGitStashApply /> Be a Volunteer</button>}
+                            <a onClick={() => document.getElementById('my_modal_5').showModal()} className="px-8 text-lg font-semibold rounded dark:border-gray-800 flex items-center gap-1 border-2 border-[#00df9a] hover:border-[#00df9a] text-black cursor-pointer btn bg-[#00df9a] hover:bg-[#00df9a] hover:text-black "><LiaPeopleCarrySolid /> Organizer</a>
                         </div>
                     </div>
 
@@ -193,11 +251,19 @@ const Details = () => {
             <div>
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
-                        <div className="flex flex-col justify-center items-center gap-2">
-                            {organizer?.photo ? <img src={organizer?.photo} className="w-20 h-20 object-cover border-4 border-[#00df9a] rounded-full" /> :
-                                <p className="border-4 border-[#00df9a] p-2 rounded-full"><FaUserTie size={60} /></p>}
-                            <h1 className="text-xl font-bold">{organizer?.name}</h1>
-                            <h1 className="flex items-center justify-center gap-1"><MdAttachEmail /> {organizer?.email}</h1>
+                        <div className="flex flex-col justify-center items-center gap-5">
+                            <div className="flex items-center gap-2">
+                                {organizer?.photo ? <img src={organizer?.photo} className="w-20 h-20 object-cover border-4 border-[#00df9a] rounded-full" /> :
+                                    <p className="border-4 border-[#00df9a] p-2 rounded-full"><FaUserTie size={60} /></p>}
+                                <div>
+                                    <h1 className="text-xl font-bold">{organizer?.name}</h1>
+                                    <h1 className="flex items-center justify-center gap-1"><MdAttachEmail /> {organizer?.email}</h1>
+                                </div>
+                            </div>
+                            {organizer?.email === user?.email ? "" : <form onSubmit={handleReviews} className="w-full flex flex-col gap-3 items-center">
+                                <textarea name="message" className="textarea border-2 border-[#00df9a] w-full focus:outline-none" placeholder="feedback for owner" required></textarea>
+                                <button className=" text-lg font-semibold rounded dark:border-gray-800 flex items-center gap-1 border-2 border-[#00df9a] hover:border-[#00df9a] text-black cursor-pointer btn bg-[#00df9a] hover:bg-[#00df9a] hover:text-black " type="submit"><MdOutlineRateReview />Review</button>
+                            </form>}
                         </div>
                         <div className="modal-action">
                             <form method="dialog">

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAllProvider from "../hooks/useAllProvider";
 import { RotatingLines } from 'react-loader-spinner'
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import axios from "axios";
 
 const SignUp = () => {
     const axiosSecure = useAxiosSecure();
@@ -16,6 +17,7 @@ const SignUp = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state || '/';
+    const imageRef = useRef();
 
     const handleSignUp = async e => {
         setSignUpLoader(true)
@@ -24,8 +26,7 @@ const SignUp = () => {
             passErr ||
             e.target.email.value === "" ||
             e.target.password.value === "" ||
-            e.target.name.value === "" ||
-            e.target.photoURL.value === "") {
+            e.target.name.value === "") {
             toast.error('Input Field Required.', {
                 style: {
                     border: '1px solid red',
@@ -54,13 +55,21 @@ const SignUp = () => {
             setSignUpLoader(false)
             return;
         }
-        const userData = {
-            name: e.target.name.value,
-            email: e.target.email.value,
-            password: e.target.password.value,
-            photoURL: e.target.photoURL.value,
-        }
+        const image = imageRef.current.files[0];
+        const formData = new FormData();
+        formData.append("image", image);
+
         try {
+            const { data: uploadPhoto } = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IBB_API}`, formData)
+            // console.log(data.data.display_url);
+
+            const userData = {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                password: e.target.password.value,
+                photoURL: uploadPhoto.data.display_url
+            }
+
             const { user: registerUser } = await emailPasswordRegister(userData.email, userData.password);
             if (registerUser) {
                 updateUser(userData.name, userData.photoURL)
@@ -78,11 +87,11 @@ const SignUp = () => {
                                 secondary: 'white',
                             },
                         });
-                        axiosSecure.post('/users',{displayName: registerUser?.displayName,email:registerUser?.email,createdAt:registerUser?.metadata?.createdAt}).then(()=> {
+                        axiosSecure.post('/users', { displayName: registerUser?.displayName, email: registerUser?.email, createdAt: registerUser?.metadata?.createdAt }).then(() => {
                             navigate(from);
                             setSignUpLoader(false)
                         })
-                        
+
                     })
             }
         } catch (error) {
@@ -207,9 +216,9 @@ const SignUp = () => {
                             </div>
                             <div className="space-y-2 md:col-span-2">
                                 <div className="flex justify-between">
-                                    <label htmlFor="photo" className="text-sm">Photo URL</label>
+                                    <label htmlFor="photo" className="text-sm">Photo</label>
                                 </div>
-                                <input type="text" name="photoURL" id="photo" placeholder="URL" className="w-full px-3 py-2 border-2 border-[#00df9a] rounded-md " />
+                                <input ref={imageRef} type="file" name="photo" id="photo" className="w-full px-3 py-2 border-2 border-[#00df9a] rounded-md " required />
                             </div>
                         </div>
                         <div className="text-center">
